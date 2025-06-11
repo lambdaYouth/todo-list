@@ -1,0 +1,36 @@
+<div class="flex flex-col items-center">
+    <!-- <div class="border-2 border-gray-300 rounded-xl w-1/2 p-5 mt-10">
+        <p>{{taskName}}</p>
+    </div> -->
+    <div class="flex items-center mt-10">
+        <form #myForm="ngForm" (ngSubmit)="myForm.resetForm()">
+            <input type="text" name="myForm" [(ngModel)]="taskName" placeholder="Enter task name" class="w-xl h-16 border-2 rounded-l-2xl border-gray-300 p-4 border-r-blue-500 placeholder:text-gray-400"/>
+            <button type="submit" class="bg-blue-500 p-5 text-white rounded-r-2xl" (click)="addTask()">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class="grid grid-cols-2 gap-4 mt-15 m-25">
+    <div>
+        <div class="border-2 border-gray-300 rounded-xl p-10">
+            <h2 class=" border-gray-300 text-3xl mb-8">Pending</h2>
+            <ul>
+                <li *ngFor="let item of taskList" class="flex items-center">
+                    <input type="checkbox" id="task" name="task" class="mr-5 size-5" (click)="addToComplete()">
+                    <label for="task" class="text-2xl">{{ item }}</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div class="border-2 border-gray-300 rounded-xl p-10">
+            <h2 class="text-3xl border-gray-300 mb-8">Completed</h2>
+            <ul>
+                <li *ngFor="let item of completedTaskList">
+                    <input type="checkbox" name="completedTask" id="completedTask" class="mr-5 size-5">
+                    <label for="completedTask" class="text-2xl">{{ item }}</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
