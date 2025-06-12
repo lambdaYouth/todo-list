@@ -15,7 +15,13 @@ export class Master {
   completedTaskList: string[] = [];
 
   addTask() {
-    this.taskList.push(this.taskName);
+    if(this.taskName) { 
+      this.taskList.push(this.taskName);
+    }
+    else {
+      alert("Enter valid name!");
+      return;
+    }
     console.log(this.taskList);
   }
 
@@ -27,6 +33,8 @@ export class Master {
     this.taskList = _.remove(this.taskList, (name) => {
       name === completedTaskName;
     })
+    console.log(`Completed list: ${this.completedTaskList}`)
+    console.log(`Current list: ${this.taskList}`)
 
   }
 }
