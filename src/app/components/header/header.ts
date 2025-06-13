@@ -12,5 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 
 export class Header {
-
+  addDarkMode(): void {
+    console.log("Implement dark mode")
+  }
 }
