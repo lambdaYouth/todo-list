@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import _  from 'lodash';
 
 @Component({
   selector: 'app-master',
@@ -25,16 +24,14 @@ export class Master {
     console.log(this.taskList);
   }
 
-  addToComplete() {
-    let checkBox = document.getElementById("task");
-    let label = checkBox?.nextElementSibling;
-    let completedTaskName = label?.textContent;
-    if(completedTaskName) { this.completedTaskList.push(completedTaskName) } else { console.log("No tasks") };
-    this.taskList = _.remove(this.taskList, (name) => {
-      name === completedTaskName;
-    })
-    console.log(`Completed list: ${this.completedTaskList}`)
-    console.log(`Current list: ${this.taskList}`)
+  addToComplete(task: string) {
+    const index = this.taskList.indexOf(task);
+    if (index > -1) {
+    this.taskList.splice(index, 1);
+    this.completedTaskList.push(task);
+  }
 
+  console.log("Completed list:", this.completedTaskList);
+  console.log("Pending list:", this.taskList);
   }
 }
