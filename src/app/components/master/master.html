@@ -1,16 +1,19 @@
-<div class="md:mt-30 dark:bg-black dark:text-white">
+<div class="md:mt-30">
     <div class="flex justify-center items-center m-7 max-sm:justify-center">
         <form #myForm="ngForm" (ngSubmit)="myForm.resetForm()" class="max-sm:flex max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:m-15 md:text-xl">
-            <input type="text" name="myForm" [(ngModel)]="taskName" placeholder="Enter task name" class="lg:w-xl lg:h-16 md:mr-5 border-2 rounded-2xl border-gray-300 p-4 placeholder:text-gray-400 dark:bg-white dark:text-black"/>
-            <button type="submit" class="bg-blue-500 p-5 text-white rounded-2xl max-sm:mt-5 md:text-xl" (click)="addTask()">Submit</button>
+            <input type="text" name="myForm" [(ngModel)]="taskName" placeholder="Enter task name" class="lg:w-xl lg:h-16 md:mr-5 border-2 rounded-4xl border-gray-300 p-4 placeholder:text-gray-400 dark:bg-white dark:text-black"/>
+            <button type="submit" class="bg-blue-500 p-6 text-white rounded-3xl max-sm:mt-5 md:text-xl" (click)="addTask()">Add</button>
         </form>
     </div>
 
 
     <div class="grid grid-cols-2 max-lg:gap-5 md:gap-5 md:m-30 md:text-2xl lg:m-25 lg:gap-5 overflow-hidden max-sm:flex max-sm:flex-col max-sm:items-center max-sm:text-xl max-md:pb-25">
         
-            <div class="text-left text-wrap flex flex-col border-l-2 border-l-gray-400 rounded-xl p-10 max-sm:w-3/4">
-                <h2 class="border-gray-300 max-md:text-xl lg:text-3xl mb-8">Pending</h2>
+            <div class="bg-gray-50 text-left text-wrap flex flex-col border-2 border-gray-200 rounded-xl p-10 max-sm:w-3/4">
+                <div class="flex justify-between">
+                    <h2 class="border-gray-300 max-md:text-xl lg:text-3xl mb-8">Pending</h2>
+                    <fa-icon [icon]="faClock" style="color: #2b7fff"></fa-icon>
+                </div>
                 <ul>
                     <li *ngFor="let item of taskList" class="flex items-center">
                         <input type="checkbox" name="task" class="mr-5 size-5" (click)="addToComplete(item)">
@@ -20,8 +23,11 @@
             </div>
         
         
-            <div class="text-left text-wrap flex flex-col border-l-2 border-l-gray-400 rounded-xl p-10 max-sm:w-3/4">
-                <h2 class="max-md:text-xl lg:text-3xl border-gray-300 mb-8">Completed</h2>
+            <div class="bg-gray-50 text-left text-wrap flex flex-col border-2 border-gray-200 rounded-xl p-10 max-sm:w-3/4">
+                <div class="flex justify-between">
+                    <h2 class="max-md:text-xl lg:text-3xl border-gray-300 mb-8">Completed</h2>
+                    <fa-icon [icon]="faCheck" style="color: #2b7fff"></fa-icon>
+                </div>
                 <ul>
                     <li *ngFor="let item of completedTaskList" class="flex items-center">
                         <input type="checkbox" name="completedTask" class="mr-5 size-5" checked disabled>

@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-master',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, FontAwesomeModule],
   templateUrl: './master.html',
   styleUrl: './master.css'
 })
@@ -12,6 +15,8 @@ export class Master {
   taskName: string = "";
   taskList: string[] = [];
   completedTaskList: string[] = [];
+  faClock = faClock;
+  faCheck = faCircleCheck;
 
   addTask() {
     if(this.taskName) { 
