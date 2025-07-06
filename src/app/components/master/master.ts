@@ -19,7 +19,7 @@ export class Master {
   faCheck = faCircleCheck;
 
   addTask() {
-    if(this.taskName) { 
+    if(this.taskName.trim().length!=0 && this.taskName.length!=0) { 
       this.taskList.push(this.taskName);
     }
     else {
